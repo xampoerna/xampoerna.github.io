@@ -1,208 +1,2175 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+    <!-- TailwindCSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
 
+    <!-- CSS Style -->
     <link rel="stylesheet" href="style.css" />
 
-    <title>My Portfolio | A. Xampoerna</title>
+    <!-- Boxicons CDN Link -->
+    <link
+      href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: " #800080",
+              secondary: "#daa520",
+            },
+            width: {
+              last: "95%",
+            },
+          },
+        },
+      };
+    </script>
+
+    <title>MyPortfolio - OSAMA</title>
   </head>
-  <body id="home">
+  <body>
     <!-- Navbar Start -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm fixed-top">
-      <div class="container">
-        <a class="navbar-brand" href="#">A. Xampoerna</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav ms-auto">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#home">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#about">About</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#projects">Projects</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#contact">Contact</a>
-            </li>
-          </ul>
+    <nav class="top-0 sticky">
+      <nav class="bg-white rounded-b-md border-b-2 border-gray-300 shadow-sm">
+        <div
+          class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4"
+        >
+          <a href="#" class="flex items-center">
+            <span
+              id="navbar-title"
+              class="self-center text-2xl font-semibold whitespace-nowrap"
+              >Portfolio OSAMA</span
+            >
+          </a>
+          <div class="flex md:order-2">
+            <button
+              data-collapse-toggle="navbar-search"
+              type="button"
+              class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm rounded-lg md:hidden focus:outline-none focus:ring-2 focus:ring-gray-200"
+              aria-controls="navbar-search"
+              aria-expanded="false"
+            >
+              <span class="sr-only">Open main menu</span>
+              <svg
+                class="w-5 h-5"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 17 14"
+              >
+                <path
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M1 1h15M1 7h15M1 13h15"
+                />
+              </svg>
+            </button>
+          </div>
+          <div
+            class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1 transition"
+            id="navbar-search"
+          >
+            <ul
+              class="flex flex-col p-4 md:p-0 mt-4 lg:text-base font-medium border border-gray-100 rounded-lg bg-gray-50 md:bg-transparent md:flex-row md:space-x-8 md:mt-0 md:border-0"
+            >
+              <li>
+                <a
+                  href="index.html"
+                  class="py-2 pl-3 pr-4 text-gray-900 rounded hover:underline md:hover:bg-transparent md:hover:text-primary md:p-0 inline-flex items-center"
+                  aria-current="page"
+                  >HOME</a
+                >
+              </li>
+              <li class="relative group">
+                <button
+                  id="skills"
+                  data-dropdown-toggle="dropdownHoverSkills"
+                  data-dropdown-trigger="hover"
+                  class="py-2 pl-3 pr-4 text-gray-900 rounded hover:underline md:hover:bg-transparent md:hover:text-primary md:p-0 inline-flex items-center"
+                  type="button"
+                >
+                  SKILLS
+                  <svg
+                    class="w-2.5 h-2.5 ms-2 hover:underline"
+                    aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 10 6"
+                  >
+                    <path
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="m1 1 4 4 4-4"
+                    />
+                  </svg>
+                </button>
+                <div
+                  id="dropdownHoverSkills"
+                  class="z-10 hidden absolute left-1/2 transform -translate-x-1/2 mt-2 bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700"
+                >
+                  <ul
+                    class="py-2 text-sm text-gray-700 bg-primary rounded-md"
+                    aria-labelledby="skills"
+                  >
+                    <li>
+                      <a
+                        href="#techstack"
+                        class="block px-4 py-2 text-white hover:bg-white rounded-md hover:text-gray-700"
+                        >TECHNOLOGY STACK</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        href="#toolsd"
+                        class="block px-4 py-2 text-white hover:bg-white rounded-md hover:text-gray-700"
+                        >TOOLS USED</a
+                      >
+                    </li>
+                  </ul>
+                </div>
+              </li>
+              <li>
+                <a
+                  href="#portfolio"
+                  class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:underline md:hover:bg-transparent md:hover:text-primary md:p-0"
+                  >PORTFOLIO GALLERY</a
+                >
+              </li>
+              <li class="relative group">
+                <button
+                  id="credentials"
+                  data-dropdown-toggle="dropdownHoverCredentials"
+                  data-dropdown-trigger="hover"
+                  class="py-2 pl-3 pr-4 text-gray-900 rounded hover:underline md:hover:bg-transparent md:hover:text-primary md:p-0 inline-flex items-center"
+                  type="button"
+                >
+                  CREDENTIALS
+                  <svg
+                    class="w-2.5 h-2.5 ms-2 hover:underline"
+                    aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 10 6"
+                  >
+                    <path
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="m1 1 4 4 4-4"
+                    />
+                  </svg>
+                </button>
+                <div
+                  id="dropdownHoverCredentials"
+                  class="z-10 hidden absolute left-1/2 transform -translate-x-1/2 mt-2 bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700"
+                >
+                  <ul
+                    class="py-2 text-sm text-gray-700 bg-primary rounded-md"
+                    aria-labelledby="credentials"
+                  >
+                    <li>
+                      <a
+                        href="#certif"
+                        class="block px-4 py-2 text-white hover:bg-white rounded-md hover:text-gray-700"
+                        >CERTIFICATIONS</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        href="#achiev"
+                        class="block px-4 py-2 text-white hover:bg-white rounded-md hover:text-gray-700"
+                        >ACHIEVEMENTS</a
+                      >
+                    </li>
+                  </ul>
+                </div>
+              </li>
+              <li>
+                <a
+                  href="#contact"
+                  class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:underline md:hover:bg-transparent md:hover:text-primary md:p-0"
+                  >CONTACT</a
+                >
+              </li>
+            </ul>
+          </div>
         </div>
-      </div>
+      </nav>
+      <nav
+        class="mx-auto bg-white md:w-last rounded-b-md border-b-2 border-gray-300"
+      >
+        <div
+          class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4"
+        >
+          <!-- Time Section (Left) -->
+          <div class="time flex text-center">
+            <div class="display-date rounded-md cursor-pointer">
+              <div class="calender hidden md:block">
+                <span id="day">day</span>,
+                <span id="daynum">00</span>
+                <span id="month">month</span>
+                <span id="year">0000</span>
+              </div>
+              <span class="display-time text-sm md:text-base"></span>
+            </div>
+          </div>
+          <!-- Login-User Section (Right) -->
+          <div class="login-user rounded-full cursor-pointer">
+            <span id="userPic" class="text-sm md:text-base text-white">
+              <img
+                src="media/sam-formal-no-bg.png"
+                alt="samPic"
+                class="rounded-full h-9 md:h-11"
+              />
+            </span>
+            <div
+              id="menuContainer"
+              class="hidden absolute right-0 mt-2 bg-white border border-gray-300 rounded-md shadow-xl z-10"
+            >
+              <ul class="py-1 bg-primary rounded-md">
+                <li>
+                  <a
+                    href="#"
+                    class="block text-sm text-white px-4 py-2 rounded-md hover:bg-white hover:text-gray-700"
+                  >
+                    <span class="bx bx-key"></span> Change Password
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="block text-sm text-white px-4 py-2 rounded-md hover:bg-white hover:text-gray-700"
+                  >
+                    <span class="bx bxs-log-out"></span> Logout
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </nav>
     </nav>
     <!-- Navbar End -->
 
-    <!-- jumbotron Start -->
-    <section class="jumbotron text-center">
-      <img src="media/xmp.jpg" alt="A. Xampoerna" width="200" class="rounded-circle img-thumbnail" />
-      <h1 class="display-4">A. Xampoerna</h1>
-      <p class="lead">Programmer | WebDev | IoT</p>
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
-        <path
-          fill="#fff"
-          fill-opacity="1"
-          d="M0,32L48,32C96,32,192,32,288,69.3C384,107,480,181,576,208C672,235,768,213,864,192C960,171,1056,149,1152,144C1248,139,1344,149,1392,154.7L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
-        ></path>
-      </svg>
-    </section>
-    <!-- Jumbotron End -->
-
-    <!-- About Start -->
-    <section id="about">
-      <div class="container">
-        <div class="row text-center mb-3">
-          <div class="col">
-            <h2>About Me</h2>
+    <!-- Main Content Start -->
+    <main class="flex-1 w-full md:w-11/12 mx-auto">
+      <!-- Hero Section Start -->
+      <section id="home" class="h-max md:pt-0 mb-10">
+        <div class="grid md:grid-cols-2">
+          <div class="self-center my-5 py-5 px-4 md:px-10">
+            <h1 class="text-base font-semibold text-primary">
+              Haii 👋🏻 Selamat datang di halaman <i>"portfolio"</i> saya!<span
+                class="block font-bold text-6xl text-semiDark my-1"
+                >Osama</span
+              >
+            </h1>
+            <h2 class="font-medium text-slate-500 mb-5 mt-3 text-lg">
+              Fresh Graduate |
+              <span class="text-semiDark">Junior Web Developer</span> |
+              <span class="text-semiDark">IoT Enthusiast</span>
+            </h2>
+            <p class="font-medium text-justify text-slate-700 leading-relaxed">
+              Saya memiliki minat dalam menciptakan pengalaman digital yang
+              menggabungkan kreativitas dan fungsionalitas. Mari melihat
+              perjalanan saya sebagai junior web developer.
+            </p>
+            <div class="flex mt-4 space-x-5 md:mt-5">
+              <i class="font-medium">Let's Connect:</i>
+              <span
+                ><a
+                  href="https://github.com/xampoerna"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img src="media/icon/github.png" alt="myGitHub" class="h-5"
+                /></a>
+              </span>
+              <span
+                ><a
+                  href="https://api.whatsapp.com/send?phone=6285366330481"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img
+                    src="media/icon/whatsapp.png"
+                    alt="myWhatsapp"
+                    class="h-5"
+                /></a>
+              </span>
+              <span
+                ><a
+                  href="https://instagram.com/icb.sam/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img
+                    src="media/icon/instagram.png"
+                    alt="myInstagram"
+                    class="h-5"
+                /></a>
+              </span>
+              <span
+                ><a
+                  href="https://www.facebook.com/xampoerna"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  ><img
+                    src="media/icon/facebook.png"
+                    alt="myFacebook"
+                    class="h-5"
+                /></a>
+              </span>
+            </div>
+          </div>
+          <div class="mx-auto my-12 md:my-10">
+            <div>
+              <img
+                src="media/aing.jpg"
+                alt="gweh wokwok"
+                class="h-96 rounded-2xl"
+              />
+            </div>
           </div>
         </div>
-        <div class="row justify-content-center fs-6 text-center">
-          <div class="col-md-4 mb-3">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Officia, illum? Odit dolores minus tempora sed neque pariatur! Laborum, quas exercitationem.</div>
-          <div class="col-md-4 mb-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis id in quam alias, quidem necessitatibus doloremque magni at repellendus perferendis nam tenetur iusto voluptatibus iure.</div>
-        </div>
+      </section>
+      <!-- Hero Section End -->
+
+      <!-- Header Tech Stack Starat -->
+      <div id="techstack" class="my-10 md:pt-44 md:mb-14">
+        <h1 class="text-center font-semibold text-2xl md:text-4xl md:font-bold">
+          TECHNOLOGY STACK
+        </h1>
+        <hr class="mt-5 w-1/6 md:w-1/12 border-t-2 border-primary mx-auto" />
       </div>
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
-        <path
-          fill="#faf3ce"
-          fill-opacity="1"
-          d="M0,32L48,42.7C96,53,192,75,288,80C384,85,480,75,576,96C672,117,768,171,864,202.7C960,235,1056,245,1152,218.7C1248,192,1344,128,1392,96L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
-        ></path>
-      </svg>
-    </section>
-    <!-- About End -->
+      <!-- Header Tech Stack End  -->
 
-    <!-- Projects Start -->
-    <section id="projects">
-      <div class="container">
-        <div class="row text-center mb-3">
-          <div class="col">
-            <h2>My Projects</h2>
-          </div>
-        </div>
-        <div class="row justify-content-center">
-          <div class="col-md-4 mb-3">
-            <div class="card" style="width: 22rem">
-              <img src="media/P1.jpg" class="card-img-top" alt="Metode AHP" />
-              <div class="card-body text-center">
-                <h5 class="card-title">Aplikasi AI Metode AHP</h5>
-                <p class="card-text">Sebuah aplikasi AI yang menerapkan Metode AHP</p>
-                <a href="#" class="btn btn-primary">Demo Apps</a>
-              </div>
+      <!-- Tech Stack Start -->
+      <section
+        class="mt-5 mx-2.5 md:mx-auto text-center my-12 grid md:grid-cols-3 gap-4"
+      >
+        <div class="grid grid-cols-2 gap-4">
+          <div
+            class="w-full max-w-sm mx-auto mb-5 bg-white border border-gray-200 rounded-lg shadow-md hover:shadow-lg hover:font-medium cursor-pointer dark:bg-gray-800 dark:border-gray-700"
+          >
+            <div class="flex flex-col items-center pb-10">
+              <img
+                class="w-20 h-20 mb-3 mt-5"
+                src="media/logo/html.png"
+                alt=""
+              />
+              <h5
+                class="mb-1 text-xl font-medium text-gray-900 dark:text-white"
+              >
+                HTML5
+              </h5>
+              <span class="text-sm text-gray-500 dark:text-gray-400"
+                >Hypertext Markup Language</span
+              >
             </div>
           </div>
-          <div class="col-md-4 mb-3">
-            <div class="card" style="width: 22rem">
-              <img src="media/P2.jpg" class="card-img-top" alt="Metode WP" />
-              <div class="card-body text-center">
-                <h5 class="card-title">Aplikasi AI Metode WP</h5>
-                <p class="card-text">Sebuah aplikasi AI yang menerapkan Metode WP</p>
-                <a href="#" class="btn btn-primary">Demo Apps</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4 mb-3">
-            <div class="card" style="width: 22rem">
-              <img src="media/P3.jpg" class="card-img-top" alt="SAW" />
-              <div class="card-body text-center">
-                <h5 class="card-title">Aplikasi AI Metode SAW</h5>
-                <p class="card-text">Sebuah aplikasi AI yang menerapkan Metode SAW</p>
-                <a href="#" class="btn btn-primary">Demo Apps</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4 mb-3">
-            <div class="card" style="width: 22rem">
-              <img src="media/P5.jpg" class="card-img-top" alt="Music Player" />
-              <div class="card-body text-center">
-                <h5 class="card-title">Aplikasi AI Music Player</h5>
-                <p class="card-text">Sebuah aplikasi AI yang menerapkan Music Player</p>
-                <a href="#" class="btn btn-primary">Demo Apps</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4 mb-3">
-            <div class="card" style="width: 22rem">
-              <img src="media/P4.jpg" class="card-img-top" alt="Metode JST" />
-              <div class="card-body text-center">
-                <h5 class="card-title">Aplikasi AI Metode JST</h5>
-                <p class="card-text">Sebuah aplikasi AI yang menerapkan Metode JST</p>
-                <a href="#" class="btn btn-primary">Demo Apps</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4 mb-3">
-            <div class="card" style="width: 22rem">
-              <img src="media/P6.jpg" class="card-img-top" alt="Video Player" />
-              <div class="card-body text-center">
-                <h5 class="card-title">Aplikasi AI Video Player</h5>
-                <p class="card-text">Sebuah aplikasi AI yang menerapkan Video Player</p>
-                <a href="#" class="btn btn-primary">Demo Apps</a>
-              </div>
+          <div
+            class="w-full max-w-sm mx-auto mb-5 bg-white border border-gray-200 rounded-lg shadow-md hover:shadow-lg hover:font-medium cursor-pointer dark:bg-gray-800 dark:border-gray-700"
+          >
+            <div class="flex flex-col items-center pb-10">
+              <img
+                class="w-20 h-20 mb-3 mt-5"
+                src="media/logo/css3.png"
+                alt=""
+              />
+              <h5
+                class="mb-1 text-xl font-medium text-gray-900 dark:text-white"
+              >
+                CSS3
+              </h5>
+              <span class="text-sm text-gray-500 dark:text-gray-400"
+                >Cascading Style Sheet</span
+              >
             </div>
           </div>
         </div>
+        <div class="grid grid-cols-2 gap-4">
+          <div
+            class="w-full max-w-sm mx-auto mb-5 bg-white border border-gray-200 rounded-lg shadow-md hover:shadow-lg hover:font-medium cursor-pointer dark:bg-gray-800 dark:border-gray-700"
+          >
+            <div class="flex flex-col items-center pb-10">
+              <img
+                class="w-20 h-20 mb-3 mt-5"
+                src="media/logo/javascript.png"
+                alt=""
+              />
+              <h5
+                class="mb-1 text-xl font-medium text-gray-900 dark:text-white"
+              >
+                JS
+              </h5>
+              <span class="text-sm text-gray-500 dark:text-gray-400"
+                >JavaScript</span
+              >
+            </div>
+          </div>
+          <div
+            class="w-full max-w-sm mx-auto mb-5 bg-white border border-gray-200 rounded-lg shadow-md hover:shadow-lg hover:font-medium cursor-pointer dark:bg-gray-800 dark:border-gray-700"
+          >
+            <div class="flex flex-col items-center pb-10">
+              <img
+                class="w-20 h-20 mb-3 mt-5"
+                src="media/logo/php.png"
+                alt=""
+              />
+              <h5
+                class="mb-1 text-xl font-medium text-gray-900 dark:text-white"
+              >
+                PHP
+              </h5>
+              <span class="text-sm text-gray-500 dark:text-gray-400"
+                >Hypertext Preprocessor</span
+              >
+            </div>
+          </div>
+        </div>
+        <div class="grid grid-cols-2 gap-4">
+          <div
+            class="w-full max-w-sm mx-auto mb-5 bg-white border border-gray-200 rounded-lg shadow-md hover:shadow-lg hover:font-medium cursor-pointer dark:bg-gray-800 dark:border-gray-700"
+          >
+            <div class="flex flex-col items-center pb-10">
+              <img
+                class="w-20 h-20 mb-3 mt-5"
+                src="media/logo/tailwind.png"
+                alt=""
+              />
+              <h5
+                class="mb-1 text-xl font-medium text-gray-900 dark:text-white"
+              >
+                Tailwind CSS
+              </h5>
+              <span class="text-sm text-gray-500 dark:text-gray-400"
+                >Framework Tailwind CSS</span
+              >
+            </div>
+          </div>
+          <div
+            class="w-full max-w-sm mx-auto mb-5 bg-white border border-gray-200 rounded-lg shadow-md hover:shadow-lg hover:font-medium cursor-pointer dark:bg-gray-800 dark:border-gray-700"
+          >
+            <div class="flex flex-col items-center pb-10">
+              <img
+                class="w-20 h-20 mb-3 mt-5"
+                src="media/logo/bootstrap5.png"
+                alt=""
+              />
+              <h5
+                class="mb-1 text-xl font-medium text-gray-900 dark:text-white"
+              >
+                Bootstrap
+              </h5>
+              <span class="text-sm text-gray-500 dark:text-gray-400"
+                >Framework Bootstrap 5</span
+              >
+            </div>
+          </div>
+        </div>
+        <div class="grid grid-cols-2 gap-4">
+          <div
+            class="w-full max-w-sm mx-auto mb-5 bg-white border border-gray-200 rounded-lg shadow-md hover:shadow-lg hover:font-medium cursor-pointer dark:bg-gray-800 dark:border-gray-700"
+          >
+            <div class="flex flex-col items-center pb-10">
+              <img
+                class="w-20 h-20 mb-3 mt-5"
+                src="media/logo/laravel.png"
+                alt=""
+              />
+              <h5
+                class="mb-1 text-xl font-medium text-gray-900 dark:text-white"
+              >
+                Laravel
+              </h5>
+              <span class="text-sm text-gray-500 dark:text-gray-400"
+                >Framework Laravel</span
+              >
+            </div>
+          </div>
+          <div
+            class="w-full max-w-sm mx-auto mb-5 bg-white border border-gray-200 rounded-lg shadow-md hover:shadow-lg hover:font-medium cursor-pointer dark:bg-gray-800 dark:border-gray-700"
+          >
+            <div class="flex flex-col items-center pb-10">
+              <img class="w-20 h-20 mb-3 mt-5" src="media/logo/c.png" alt="" />
+              <h5
+                class="mb-1 text-xl font-medium text-gray-900 dark:text-white"
+              >
+                Bahasa C
+              </h5>
+              <span class="text-sm text-gray-500 dark:text-gray-400"
+                >Bahasa Pemrograman C</span
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Tech Stack End -->
+
+      <!-- Header Tools Used Start -->
+      <div id="toolsd" class="my-10 md:pt-44 md:mb-14">
+        <h1 class="text-center font-semibold text-2xl md:text-4xl md:font-bold">
+          TOOLS USED
+        </h1>
+        <hr class="mt-5 w-1/6 md:w-1/12 border-t-2 border-primary mx-auto" />
       </div>
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
-        <path
-          fill="#fff"
-          fill-opacity="1"
-          d="M0,288L48,282.7C96,277,192,267,288,229.3C384,192,480,128,576,117.3C672,107,768,149,864,154.7C960,160,1056,128,1152,117.3C1248,107,1344,117,1392,122.7L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
-        ></path>
-      </svg>
-    </section>
-    <!-- Project End -->
+      <!-- Header Tools Used End  -->
 
-    <!-- Contact Start -->
-    <section id="contact">
-      <div class="container">
-        <div class="row text-center mb-3">
-          <div class="col">
-            <h2>Contact Me</h2>
+      <!-- Tools Used Start -->
+      <section
+        class="mt-5 mx-2.5 md:mx-auto text-center my-12 grid md:grid-cols-3 gap-4"
+      >
+        <div class="grid grid-cols-2 gap-4">
+          <div
+            class="w-full max-w-sm mx-auto mb-5 bg-white border border-gray-200 rounded-lg shadow-md hover:shadow-lg hover:font-medium cursor-pointer dark:bg-gray-800 dark:border-gray-700"
+          >
+            <div class="flex flex-col items-center pb-10">
+              <img
+                class="w-20 h-20 mb-3 mt-5"
+                src="media/logo/git.png"
+                alt=""
+              />
+              <h5
+                class="mb-1 text-xl font-medium text-gray-900 dark:text-white"
+              >
+                Git
+              </h5>
+              <span class="text-sm text-gray-500 dark:text-gray-400"
+                >Perangkat Lunak Git</span
+              >
+            </div>
+          </div>
+          <div
+            class="w-full max-w-sm mx-auto mb-5 bg-white border border-gray-200 rounded-lg shadow-md hover:shadow-lg hover:font-medium cursor-pointer dark:bg-gray-800 dark:border-gray-700"
+          >
+            <div class="flex flex-col items-center pb-10">
+              <img
+                class="w-20 h-20 mb-3 mt-5"
+                src="media/logo/github.png"
+                alt=""
+              />
+              <h5
+                class="mb-1 text-xl font-medium text-gray-900 dark:text-white"
+              >
+                GitHub
+              </h5>
+              <span class="text-sm text-gray-500 dark:text-gray-400"
+                >Pengembang Perangkat Lunak</span
+              >
+            </div>
           </div>
         </div>
-        <div class="row justify-content-center">
-          <div class="col-md-6">
-            <form>
-              <div class="mb-3">
-                <label for="name" class="form-label">Nama Lengkap</label>
-                <input type="name" class="form-control" id="name" aria-describedby="name" />
+        <div class="grid grid-cols-2 gap-4">
+          <div
+            class="w-full max-w-sm mx-auto mb-5 bg-white border border-gray-200 rounded-lg shadow-md hover:shadow-lg hover:font-medium cursor-pointer dark:bg-gray-800 dark:border-gray-700"
+          >
+            <div class="flex flex-col items-center pb-10">
+              <img
+                class="w-20 h-20 mb-3 mt-5"
+                src="media/logo/vscode.png"
+                alt=""
+              />
+              <h5
+                class="mb-1 text-xl font-medium text-gray-900 dark:text-white"
+              >
+                VS Code
+              </h5>
+              <span class="text-sm text-gray-500 dark:text-gray-400"
+                >Perangkat Lunak</span
+              >
+            </div>
+          </div>
+          <div
+            class="w-full max-w-sm mx-auto mb-5 bg-white border border-gray-200 rounded-lg shadow-md hover:shadow-lg hover:font-medium cursor-pointer dark:bg-gray-800 dark:border-gray-700"
+          >
+            <div class="flex flex-col items-center pb-10">
+              <img
+                class="w-20 h-20 mb-3 mt-5"
+                src="media/logo/postman.png"
+                alt=""
+              />
+              <h5
+                class="mb-1 text-xl font-medium text-gray-900 dark:text-white"
+              >
+                Postman
+              </h5>
+              <span class="text-sm text-gray-500 dark:text-gray-400"
+                >Perangkat Lunak</span
+              >
+            </div>
+          </div>
+        </div>
+        <div class="grid grid-cols-2 gap-4">
+          <div
+            class="w-full max-w-sm mx-auto mb-5 bg-white border border-gray-200 rounded-lg shadow-md hover:shadow-lg hover:font-medium cursor-pointer dark:bg-gray-800 dark:border-gray-700"
+          >
+            <div class="flex flex-col items-center pb-10">
+              <img
+                class="w-20 h-20 mb-3 mt-5"
+                src="media/logo/microsoft.png"
+                alt=""
+              />
+              <h5
+                class="mb-1 text-xl font-medium text-gray-900 dark:text-white"
+              >
+                Microsoft
+              </h5>
+              <span class="text-sm text-gray-500 dark:text-gray-400"
+                >Layanan Microsoft</span
+              >
+            </div>
+          </div>
+          <div
+            class="w-full max-w-sm mx-auto mb-5 bg-white border border-gray-200 rounded-lg shadow-md hover:shadow-lg hover:font-medium cursor-pointer dark:bg-gray-800 dark:border-gray-700"
+          >
+            <div class="flex flex-col items-center pb-10">
+              <img
+                class="w-20 h-20 mb-3 mt-5"
+                src="media/logo/arduino.png"
+                alt=""
+              />
+              <h5
+                class="mb-1 text-xl font-medium text-gray-900 dark:text-white"
+              >
+                Arduino IDE
+              </h5>
+              <span class="text-sm text-gray-500 dark:text-gray-400"
+                >Perangkat Lunak</span
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Tools Used End -->
+
+      <!-- Header Portfolio Start -->
+      <div id="portfolio" class="my-10 md:pt-44 md:mb-14">
+        <h1 class="text-center font-semibold text-2xl md:text-4xl md:font-bold">
+          PORTFOLIO GALLERY
+        </h1>
+        <hr class="mt-5 w-1/6 md:w-1/12 border-t-2 border-primary mx-auto" />
+      </div>
+      <!-- Header Portfolio End  -->
+
+      <!-- Portfolio Start -->
+      <section
+        class="mt-5 mx-auto md:mx-auto text-justify my-12 grid md:grid-cols-4 gap-4"
+      >
+        <div
+          class="max-w-sm mx-auto md:mb-5 bg-white border border-gray-200 rounded-lg shadow-md hover:shadow-lg hover:font-medium dark:bg-gray-800 dark:border-gray-700"
+        >
+          <a
+            href="https://xampoerna.github.io/cdc.v1.0/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img
+              class="rounded-t-lg h-40 w-full"
+              src="media/ss/cdc.png"
+              alt=""
+            />
+          </a>
+          <div class="p-5">
+            <a
+              href="https://xampoerna.github.io/cdc.v1.0/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <h5
+                class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"
+              >
+                SIM-CDC
+              </h5>
+            </a>
+            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
+              Sebuah proyek aplikasi web untuk Sistem Informasi Career
+              Development Center (SIM-CDC) dari Lembaga Pendidikan Politeknik
+              Piksi Ganesha
+            </p>
+            <a
+              href="https://xampoerna.github.io/cdc.v1.0/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center hover:underline px-3 py-2 text-sm font-medium text-center text-white bg-primary rounded-lg hover:bg-secondary focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-primary dark:focus:ring-blue-800"
+            >
+              👆🏻 Visit site 👆🏻
+            </a>
+          </div>
+        </div>
+        <div
+          class="max-w-sm mx-auto md:mb-5 bg-white border border-gray-200 rounded-lg shadow-md hover:shadow-lg hover:font-medium dark:bg-gray-800 dark:border-gray-700"
+        >
+          <a
+            href="https://xampoerna.github.io/simsis.v2.0/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img
+              class="rounded-t-lg h-40 w-full"
+              src="media/ss/sis2.png"
+              alt=""
+            />
+          </a>
+          <div class="p-5">
+            <a
+              href="https://xampoerna.github.io/simsis.v2.0/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <h5
+                class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"
+              >
+                SIM-SIS V.2.0
+              </h5>
+            </a>
+            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
+              Sebuah proyek aplikasi web untuk Sistem Informasi Mahasiswa
+              (SIM-SIS) dari Lembaga Pendidikan Politeknik Piksi Ganesha (Versi
+              2)
+            </p>
+            <a
+              href="https://xampoerna.github.io/simsis.v2.0/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center hover:underline px-3 py-2 text-sm font-medium text-center text-white bg-primary rounded-lg hover:bg-secondary focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-primary dark:focus:ring-blue-800"
+            >
+              👆🏻 Visit site 👆🏻
+            </a>
+          </div>
+        </div>
+
+        <div
+          class="max-w-sm mx-auto md:mb-5 bg-white border border-gray-200 rounded-lg shadow-md hover:shadow-lg hover:font-medium dark:bg-gray-800 dark:border-gray-700"
+        >
+          <a
+            href="https://xampoerna.github.io/simsis.v1.0/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img
+              class="rounded-t-lg h-40 w-full"
+              src="media/ss/sis1.png"
+              alt=""
+            />
+          </a>
+          <div class="p-5">
+            <a
+              href="https://xampoerna.github.io/simsis.v1.0/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <h5
+                class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"
+              >
+                SIM-SIS V.1.0
+              </h5>
+            </a>
+            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
+              Sebuah proyek aplikasi web untuk Sistem Informasi Mahasiswa
+              (SIM-SIS) dari Lembaga Pendidikan Politeknik Piksi Ganesha (Versi
+              1)
+            </p>
+            <a
+              href="https://xampoerna.github.io/simsis.v1.0/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center hover:underline px-3 py-2 text-sm font-medium text-center text-white bg-primary rounded-lg hover:bg-secondary focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-primary dark:focus:ring-blue-800"
+            >
+              👆🏻 Visit site 👆🏻
+            </a>
+          </div>
+        </div>
+        <div
+          class="max-w-sm mx-auto md:mb-5 bg-white border border-gray-200 rounded-lg shadow-md hover:shadow-lg hover:font-medium dark:bg-gray-800 dark:border-gray-700"
+        >
+          <a
+            href="https://xampoerna.github.io/webtikproject/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img
+              class="rounded-t-lg h-40 w-full"
+              src="media/ss/webtik.png"
+              alt=""
+            />
+          </a>
+          <div class="p-5">
+            <a
+              href="https://xampoerna.github.io/webtikproject/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <h5
+                class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"
+              >
+                WEB-TIK PROJECT
+              </h5>
+            </a>
+            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
+              Sebuah aplikasi web untuk program studi "Teknik Komputer"
+              Politeknik Piksi Ganesha sebagai tugas dari mata kuliah
+              Pemrograman Web
+            </p>
+            <a
+              href="https://xampoerna.github.io/webtikproject/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center hover:underline px-3 py-2 text-sm font-medium text-center text-white bg-primary rounded-lg hover:bg-secondary focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-primary dark:focus:ring-blue-800"
+            >
+              👆🏻 Visit site 👆🏻
+            </a>
+          </div>
+        </div>
+        <div
+          class="max-w-sm mx-auto md:mb-5 bg-white border border-gray-200 rounded-lg shadow-md hover:shadow-lg hover:font-medium dark:bg-gray-800 dark:border-gray-700"
+        >
+          <a
+            href="https://xampoerna.github.io/webDesignExtravaganza2023/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img
+              class="rounded-t-lg h-40 w-full"
+              src="media/ss/extravaganza.png"
+              alt=""
+            />
+          </a>
+          <div class="p-5">
+            <a
+              href="https://xampoerna.github.io/webDesignExtravaganza2023/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <h5
+                class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"
+              >
+                EXTRAVAGANZA 2023
+              </h5>
+            </a>
+            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
+              Sebuah aplikasi web yang di buat untuk mengikuti Lomba Design Web
+              dari Extravaganza 2023 Politeknik Piksi Ganesha
+            </p>
+            <a
+              href="https://xampoerna.github.io/webDesignExtravaganza2023/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center hover:underline px-3 py-2 text-sm font-medium text-center text-white bg-primary rounded-lg hover:bg-secondary focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-primary dark:focus:ring-blue-800"
+            >
+              👆🏻 Visit site 👆🏻
+            </a>
+          </div>
+        </div>
+        <div
+          class="max-w-sm mx-auto md:mb-5 bg-white border border-gray-200 rounded-lg shadow-md hover:shadow-lg hover:font-medium dark:bg-gray-800 dark:border-gray-700"
+        >
+          <a
+            href="https://xampoerna.github.io/gallerylightbox_firmansah/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img
+              class="rounded-t-lg h-40 w-full"
+              src="media/ss/firmansah.png"
+              alt=""
+            />
+          </a>
+          <div class="p-5">
+            <a
+              href="https://xampoerna.github.io/gallerylightbox_firmansah/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <h5
+                class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"
+              >
+                FIRMANSAH PROJECT
+              </h5>
+            </a>
+            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
+              Sebuah Gallery Lightbox yang di dedikasikan atas pencapaian Trio
+              FIRMANSAH bersama Liverpool FC
+            </p>
+            <a
+              href="https://xampoerna.github.io/gallerylightbox_firmansah/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center hover:underline px-3 py-2 text-sm font-medium text-center text-white bg-primary rounded-lg hover:bg-secondary focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-primary dark:focus:ring-blue-800"
+            >
+              👆🏻 Visit site 👆🏻
+            </a>
+          </div>
+        </div>
+      </section>
+      <!-- Portfolio End -->
+
+      <!-- Header Credentials Certifications Start -->
+      <div id="certif" class="my-10 md:pt-44 md:mt-32 md:mb-20">
+        <h1 class="text-center font-semibold text-2xl md:text-4xl md:font-bold">
+          CREDENTIALS CERTIFICATIONS
+        </h1>
+        <hr class="mt-5 w-1/6 md:w-1/12 border-t-2 border-primary mx-auto" />
+      </div>
+      <!-- Header Credentials Certifications End  -->
+
+      <!-- Credentials Certifications Start -->
+      <section
+        class="mt-5 mx-2.5 md:mx-auto text-center my-12 grid md:grid-cols-3 gap-4"
+      >
+        <!-- Card 1 -->
+        <div class="mx-auto mb-5 text-justify">
+          <span
+            class="absolute text-white p-1.5 text-sm hover:font-medium bg-slate-500/50 rounded-lg hover:underline cursor-pointer"
+            >Certifications</span
+          >
+          <button
+            data-modal-target="static-modal-1"
+            data-modal-toggle="static-modal-1"
+            type="button"
+            class="max-w-sm bg-white border border-gray-200 rounded-lg shadow-md hover:shadow-lg dark:bg-gray-800 dark:border-gray-700"
+          >
+            <img
+              class="rounded-t-lg h-auto w-full"
+              src="media/sertif/web1.png"
+              alt=""
+            />
+            <p
+              class="text-justify my-3 mx-2 font-medium text-gray-700 dark:text-gray-400"
+            >
+              Belajar Dasar Pemrograman Web [2023] - Dicoding Indonesia
+            </p>
+            <p class="mx-2 text-justify text-black text-sm font-medium my-2">
+              Berlaku hingga 16 Oktober 2026 |
+              <a
+                href="dicoding.com/certificates/6RPN4OJ18X2M"
+                class="text-sm font-medium mx-2 text-primary hover:underline"
+              >
+                ID Kredensial: 6RPN4OJ18X2M | Verifikasi Sertifikat!</a
+              >
+            </p>
+          </button>
+        </div>
+        <div
+          id="static-modal-1"
+          data-modal-backdrop="static"
+          tabindex="-1"
+          aria-hidden="true"
+          class="hidden fixed top-0 right-0 bottom-0 left-0 z-50 flex items-center justify-center bg-black bg-opacity-50"
+        >
+          <div class="relative p-4 w-full max-w-2xl">
+            <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+              <div
+                class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600"
+              >
+                <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
+                  Belajar Dasar Pemrograman Web [2023] - Dicoding Indonesia
+                </h3>
+                <button
+                  type="button"
+                  class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
+                  data-modal-hide="static-modal-1"
+                >
+                  <svg
+                    class="w-3 h-3"
+                    aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 14 14"
+                  >
+                    <path
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"
+                    />
+                  </svg>
+                  <span class="sr-only">Close modal</span>
+                </button>
               </div>
-              <div class="mb-3">
-                <label for="email" class="form-label">Email</label>
-                <input type="email" class="form-control" id="email" aria-describedby="email" />
+              <div class="p-4 md:p-5 space-y-4">
+                <img
+                  class="rounded-lg h-auto w-full"
+                  src="media/sertif/web1.png"
+                  alt=""
+                />
               </div>
-              <div class="mb-3">
-                <label for="textarea" class="form-label">Masukkan Pesan</label>
-                <textarea class="form-control" id="textarea" rows="3"></textarea>
+              <div
+                class="flex items-center p-4 md:p-5 border-t border-gray-200 rounded-b dark:border-gray-600"
+              >
+                <a
+                  href="dicoding.com/certificates/6RPN4OJ18X2M"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="text-white bg-primary hover:bg-secondary focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-primary dark:focus:ring-blue-800"
+                >
+                  Verifikasi Sertifikat!
+                </a>
+                <button
+                  data-modal-hide="static-modal-1"
+                  type="button"
+                  class="ms-3 text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600"
+                >
+                  Kembali
+                </button>
               </div>
-              <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="mx-auto mb-5 text-justify">
+          <span
+            class="absolute text-white p-1.5 text-sm hover:font-medium bg-slate-500/50 rounded-lg hover:underline cursor-pointer"
+            >Certifications</span
+          >
+          <button
+            data-modal-target="static-modal-2"
+            data-modal-toggle="static-modal-2"
+            type="button"
+            class="max-w-sm bg-white border border-gray-200 rounded-lg shadow-md hover:shadow-lg dark:bg-gray-800 dark:border-gray-700"
+          >
+            <img
+              class="rounded-t-lg h-auto w-full"
+              src="media/sertif/js.png"
+              alt=""
+            />
+            <p
+              class="text-justify my-3 mx-2 font-medium text-gray-700 dark:text-gray-400"
+            >
+              Belajar Dasar Pemrograman JavaScript [2023] - Dicoding Indonesia
+            </p>
+            <p class="mx-2 text-justify text-black text-sm font-medium my-2">
+              Berlaku hingga 17 Juli 2026 |
+              <a
+                href="dicoding.com/certificates/MRZMQV3V3PYQ"
+                class="text-sm font-medium mx-2 text-primary hover:underline"
+              >
+                ID Kredensial: MRZMQV3V3PYQ | Verifikasi Sertifikat!</a
+              >
+            </p>
+          </button>
+        </div>
+        <div
+          id="static-modal-2"
+          data-modal-backdrop="static"
+          tabindex="-1"
+          aria-hidden="true"
+          class="hidden fixed top-0 right-0 bottom-0 left-0 z-50 flex items-center justify-center bg-black bg-opacity-50"
+        >
+          <div class="relative p-4 w-full max-w-2xl">
+            <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+              <div
+                class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600"
+              >
+                <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
+                  Belajar Dasar Pemrograman JavaScript [2023] - Dicoding
+                  Indonesia
+                </h3>
+                <button
+                  type="button"
+                  class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
+                  data-modal-hide="static-modal-2"
+                >
+                  <svg
+                    class="w-3 h-3"
+                    aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 14 14"
+                  >
+                    <path
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"
+                    />
+                  </svg>
+                  <span class="sr-only">Close modal</span>
+                </button>
+              </div>
+              <div class="p-4 md:p-5 space-y-4">
+                <img
+                  class="rounded-lg h-auto w-full"
+                  src="media/sertif/js.png"
+                  alt=""
+                />
+              </div>
+              <div
+                class="flex items-center p-4 md:p-5 border-t border-gray-200 rounded-b dark:border-gray-600"
+              >
+                <a
+                  href="dicoding.com/certificates/MRZMQV3V3PYQ"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="text-white bg-primary hover:bg-secondary focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-primary dark:focus:ring-blue-800"
+                >
+                  Verifikasi Sertifikat!
+                </a>
+                <button
+                  data-modal-hide="static-modal-2"
+                  type="button"
+                  class="ms-3 text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600"
+                >
+                  Kembali
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="mx-auto mb-5 text-justify">
+          <span
+            class="absolute text-white p-1.5 text-sm hover:font-medium bg-slate-500/50 rounded-lg hover:underline cursor-pointer"
+            >Certifications</span
+          >
+          <button
+            data-modal-target="static-modal-3"
+            data-modal-toggle="static-modal-3"
+            type="button"
+            class="max-w-sm bg-white border border-gray-200 rounded-lg shadow-md hover:shadow-lg dark:bg-gray-800 dark:border-gray-700"
+          >
+            <img
+              class="rounded-t-lg h-auto w-full"
+              src="media/sertif/backend.png"
+              alt=""
+            />
+            <p
+              class="text-justify my-3 mx-2 font-medium text-gray-700 dark:text-gray-400"
+            >
+              Belajar Membuat Aplikasi Back-End untuk Pemula [2023] - Dicoding
+              Indonesia
+            </p>
+            <p class="mx-2 text-justify text-black text-sm font-medium my-2">
+              Berlaku hingga 24 Juli 2026 |
+              <a
+                href="dicoding.com/certificates/EYX46848WPDL"
+                class="text-sm font-medium mx-2 text-primary hover:underline"
+              >
+                ID Kredensial: EYX46848WPDL | Verifikasi Sertifikat!</a
+              >
+            </p>
+          </button>
+        </div>
+        <div
+          id="static-modal-3"
+          data-modal-backdrop="static"
+          tabindex="-1"
+          aria-hidden="true"
+          class="hidden fixed top-0 right-0 bottom-0 left-0 z-50 flex items-center justify-center bg-black bg-opacity-50"
+        >
+          <div class="relative p-4 w-full max-w-2xl">
+            <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+              <div
+                class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600"
+              >
+                <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
+                  Belajar Membuat Aplikasi Back-End untuk Pemula [2023] -
+                  Dicoding Indonesia
+                </h3>
+                <button
+                  type="button"
+                  class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
+                  data-modal-hide="static-modal-3"
+                >
+                  <svg
+                    class="w-3 h-3"
+                    aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 14 14"
+                  >
+                    <path
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"
+                    />
+                  </svg>
+                  <span class="sr-only">Close modal</span>
+                </button>
+              </div>
+              <div class="p-4 md:p-5 space-y-4">
+                <img
+                  class="rounded-lg h-auto w-full"
+                  src="media/sertif/backend.png"
+                  alt=""
+                />
+              </div>
+              <div
+                class="flex items-center p-4 md:p-5 border-t border-gray-200 rounded-b dark:border-gray-600"
+              >
+                <a
+                  href="dicoding.com/certificates/EYX46848WPDL"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="text-white bg-primary hover:bg-secondary focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-primary dark:focus:ring-blue-800"
+                >
+                  Verifikasi Sertifikat!
+                </a>
+                <button
+                  data-modal-hide="static-modal-3"
+                  type="button"
+                  class="ms-3 text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600"
+                >
+                  Kembali
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="mx-auto mb-5 text-justify">
+          <span
+            class="absolute text-white p-1.5 text-sm hover:font-medium bg-slate-500/50 rounded-lg hover:underline cursor-pointer"
+            >Certifications</span
+          >
+          <button
+            data-modal-target="static-modal-4"
+            data-modal-toggle="static-modal-4"
+            type="button"
+            class="max-w-sm bg-white border border-gray-200 rounded-lg shadow-md hover:shadow-lg dark:bg-gray-800 dark:border-gray-700"
+          >
+            <img
+              class="rounded-t-lg h-auto w-full"
+              src="media/sertif/aws.png"
+              alt=""
+            />
+            <p
+              class="text-justify my-3 mx-2 font-medium text-gray-700 dark:text-gray-400"
+            >
+              Cloud Practitioner Essentials (Belajar Dasar AWS Cloud) [2023] -
+              Dicoding Indonesia
+            </p>
+            <p class="mx-2 text-justify text-black text-sm font-medium my-2">
+              Berlaku hingga 24 Juni 2026 |
+              <a
+                href="https://www.dicoding.com/certificates/ERZRG27YWPYV"
+                class="text-sm font-medium mx-2 text-primary hover:underline"
+              >
+                ID Kredensial: ERZRG27YWPYV | Verifikasi Sertifikat!</a
+              >
+            </p>
+          </button>
+        </div>
+        <div
+          id="static-modal-4"
+          data-modal-backdrop="static"
+          tabindex="-1"
+          aria-hidden="true"
+          class="hidden fixed top-0 right-0 bottom-0 left-0 z-50 flex items-center justify-center bg-black bg-opacity-50"
+        >
+          <div class="relative p-4 w-full max-w-2xl">
+            <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+              <div
+                class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600"
+              >
+                <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
+                  Cloud Practitioner Essentials (Belajar Dasar AWS Cloud) [2023]
+                  - Dicoding Indonesia
+                </h3>
+                <button
+                  type="button"
+                  class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
+                  data-modal-hide="static-modal-4"
+                >
+                  <svg
+                    class="w-3 h-3"
+                    aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 14 14"
+                  >
+                    <path
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"
+                    />
+                  </svg>
+                  <span class="sr-only">Close modal</span>
+                </button>
+              </div>
+              <div class="p-4 md:p-5 space-y-4">
+                <img
+                  class="rounded-lg h-auto w-full"
+                  src="media/sertif/aws.png"
+                  alt=""
+                />
+              </div>
+              <div
+                class="flex items-center p-4 md:p-5 border-t border-gray-200 rounded-b dark:border-gray-600"
+              >
+                <a
+                  href="https://www.dicoding.com/certificates/ERZRG27YWPYV"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="text-white bg-primary hover:bg-secondary focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-primary dark:focus:ring-blue-800"
+                >
+                  Verifikasi Sertifikat!
+                </a>
+                <button
+                  data-modal-hide="static-modal-4"
+                  type="button"
+                  class="ms-3 text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600"
+                >
+                  Kembali
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 5 -->
+        <div class="mx-auto mb-5 text-justify">
+          <span
+            class="absolute text-white p-1.5 text-sm hover:font-medium bg-slate-500/50 rounded-lg hover:underline cursor-pointer"
+            >Certifications</span
+          >
+          <button
+            data-modal-target="static-modal-5"
+            data-modal-toggle="static-modal-5"
+            type="button"
+            class="max-w-sm bg-white border border-gray-200 rounded-lg shadow-md hover:shadow-lg dark:bg-gray-800 dark:border-gray-700"
+          >
+            <img
+              class="rounded-t-lg h-48 w-full"
+              src="media/ss/cdc.png"
+              alt=""
+            />
+            <p
+              class="text-justify my-3 mx-2 font-medium text-gray-700 dark:text-gray-400"
+            >
+              Information Technology Network (ITN) [2021] - LSP Politeknik Piksi
+              Ganesha [BNSP]
+            </p>
+            <p class="mx-2 text-justify text-black text-sm font-medium my-2">
+              Berlaku hingga Desember 2024 |
+              <a
+                href=""
+                class="text-sm font-medium mx-2 text-primary hover:underline"
+              >
+                ID Kredensial: TIK-002-22070-2021 | Detail Sertifikat!
+              </a>
+            </p>
+          </button>
+        </div>
+        <div
+          id="static-modal-5"
+          data-modal-backdrop="static"
+          tabindex="-1"
+          aria-hidden="true"
+          class="hidden fixed top-0 right-0 bottom-0 left-0 z-50 flex items-center justify-center bg-black bg-opacity-50"
+        >
+          <div class="relative p-4 w-full max-w-2xl">
+            <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+              <div
+                class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600"
+              >
+                <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
+                  Information Technology Network (ITN) [2021] - LSP Politeknik
+                  Piksi Ganesha [BNSP]
+                </h3>
+                <button
+                  type="button"
+                  class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
+                  data-modal-hide="static-modal-5"
+                >
+                  <svg
+                    class="w-3 h-3"
+                    aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 14 14"
+                  >
+                    <path
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"
+                    />
+                  </svg>
+                  <span class="sr-only">Close modal</span>
+                </button>
+              </div>
+              <div class="p-4 md:p-5 space-y-4">
+                <img
+                  class="rounded-lg h-auto w-full"
+                  src="media/ss/cdc.png"
+                  alt=""
+                />
+              </div>
+              <div
+                class="flex items-center p-4 md:p-5 border-t border-gray-200 rounded-b dark:border-gray-600"
+              >
+                <a
+                  href="https://github.com/xampoerna"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="text-white bg-primary hover:bg-secondary focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-primary dark:focus:ring-blue-800"
+                >
+                  Detail Sertifikat!
+                </a>
+                <button
+                  data-modal-hide="static-modal-5"
+                  type="button"
+                  class="ms-3 text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600"
+                >
+                  Kembali
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 6 -->
+        <div class="mx-auto mb-5 text-justify">
+          <span
+            class="absolute text-white p-1.5 text-sm hover:font-medium bg-slate-500/50 rounded-lg hover:underline cursor-pointer"
+            >Certifications</span
+          >
+          <button
+            data-modal-target="static-modal-6"
+            data-modal-toggle="static-modal-6"
+            type="button"
+            class="max-w-sm bg-white border border-gray-200 rounded-lg shadow-md hover:shadow-lg dark:bg-gray-800 dark:border-gray-700"
+          >
+            <img
+              class="rounded-t-lg h-48 w-full"
+              src="media/ss/cdc.png"
+              alt=""
+            />
+            <p
+              class="text-justify my-3 mx-2 font-medium text-gray-700 dark:text-gray-400"
+            >
+              Information Technology Support (ITS) [2023] - LSP Politeknik Piksi
+              Ganesha [BNSP]
+            </p>
+            <p class="mx-2 text-justify text-black text-sm font-medium my-2">
+              Berlaku hingga Desember 2023 |
+              <a
+                href=""
+                class="text-sm font-medium mx-2 text-primary hover:underline"
+              >
+                ID Kredensial: TIK-001-101022-2020 | Detail Sertifikat!</a
+              >
+            </p>
+          </button>
+        </div>
+        <div
+          id="static-modal-6"
+          data-modal-backdrop="static"
+          tabindex="-1"
+          aria-hidden="true"
+          class="hidden fixed top-0 right-0 bottom-0 left-0 z-50 flex items-center justify-center bg-black bg-opacity-50"
+        >
+          <div class="relative p-4 w-full max-w-2xl">
+            <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+              <div
+                class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600"
+              >
+                <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
+                  Information Technology Support (ITS) [2023] - LSP Politeknik
+                  Piksi Ganesha [BNSP]
+                </h3>
+                <button
+                  type="button"
+                  class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
+                  data-modal-hide="static-modal-6"
+                >
+                  <svg
+                    class="w-3 h-3"
+                    aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 14 14"
+                  >
+                    <path
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"
+                    />
+                  </svg>
+                  <span class="sr-only">Close modal</span>
+                </button>
+              </div>
+              <div class="p-4 md:p-5 space-y-4">
+                <img
+                  class="rounded-lg h-auto w-full"
+                  src="media/ss/cdc.png"
+                  alt=""
+                />
+              </div>
+              <div
+                class="flex items-center p-4 md:p-5 border-t border-gray-200 rounded-b dark:border-gray-600"
+              >
+                <a
+                  href=""
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="text-white bg-primary hover:bg-secondary focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-primary dark:focus:ring-blue-800"
+                >
+                  Detail Sertifikat!
+                </a>
+                <button
+                  data-modal-hide="static-modal-6"
+                  type="button"
+                  class="ms-3 text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600"
+                >
+                  Kembali
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Credentials Achievements End -->
+
+      <!-- Header Credentials Achievements Start -->
+      <div id="achiev" class="my-10 md:pt-44 md:mt-32 md:mb-20">
+        <h1 class="text-center font-semibold text-2xl md:text-4xl md:font-bold">
+          CREDENTIALS ACHIEVEMENTS
+        </h1>
+        <hr class="mt-5 w-1/6 md:w-1/12 border-t-2 border-primary mx-auto" />
+      </div>
+      <!-- Header Credentials Achievements End  -->
+
+      <!-- Credentials Achievements Start -->
+      <section
+        class="mt-5 mx-2.5 md:mx-auto text-center my-12 grid md:grid-cols-3 gap-4"
+      >
+        <!-- Card 7 -->
+        <div class="mx-auto mb-5 text-justify">
+          <span
+            class="absolute text-white p-1.5 text-sm hover:font-medium bg-slate-500/50 rounded-lg hover:underline cursor-pointer"
+            >Achievements</span
+          >
+          <button
+            data-modal-target="static-modal-7"
+            data-modal-toggle="static-modal-7"
+            type="button"
+            class="max-w-sm bg-white border border-gray-200 rounded-lg shadow-md hover:shadow-lg dark:bg-gray-800 dark:border-gray-700"
+          >
+            <img
+              class="rounded-t-lg h-48 w-full"
+              src="media/ss/cdc.png"
+              alt=""
+            />
+            <p
+              class="text-justify my-3 mx-2 font-medium text-gray-700 dark:text-gray-400"
+            >
+              Lomba Web Design Extravaganza [2023] - Politeknik Piksi Ganesha
+            </p>
+            <p class="mx-2 text-justify text-black text-sm font-medium my-2">
+              Juara 1 |
+              <a
+                href=""
+                class="text-sm font-medium mx-2 text-primary hover:underline"
+              >
+                Detail Sertifikat!</a
+              >
+            </p>
+          </button>
+        </div>
+        <div
+          id="static-modal-7"
+          data-modal-backdrop="static"
+          tabindex="-1"
+          aria-hidden="true"
+          class="hidden fixed top-0 right-0 bottom-0 left-0 z-50 flex items-center justify-center bg-black bg-opacity-50"
+        >
+          <div class="relative p-4 w-full max-w-2xl">
+            <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+              <div
+                class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600"
+              >
+                <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
+                  Lomba Web Design Extravaganza [2023] - Politeknik Piksi
+                  Ganesha
+                </h3>
+                <button
+                  type="button"
+                  class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
+                  data-modal-hide="static-modal-7"
+                >
+                  <svg
+                    class="w-3 h-3"
+                    aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 14 14"
+                  >
+                    <path
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"
+                    />
+                  </svg>
+                  <span class="sr-only">Close modal</span>
+                </button>
+              </div>
+              <div class="p-4 md:p-5 space-y-4">
+                <img
+                  class="rounded-lg h-auto w-full"
+                  src="media/ss/cdc.png"
+                  alt=""
+                />
+              </div>
+              <div
+                class="flex items-center p-4 md:p-5 border-t border-gray-200 rounded-b dark:border-gray-600"
+              >
+                <a
+                  href=""
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="text-white bg-primary hover:bg-secondary focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-primary dark:focus:ring-blue-800"
+                >
+                  Detail Sertifikat!
+                </a>
+                <button
+                  data-modal-hide="static-modal-7"
+                  type="button"
+                  class="ms-3 text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600"
+                >
+                  Kembali
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 8 -->
+        <div class="mx-auto mb-5 text-justify">
+          <span
+            class="absolute text-white p-1.5 text-sm hover:font-medium bg-slate-500/50 rounded-lg hover:underline cursor-pointer"
+            >Achievements</span
+          >
+          <button
+            data-modal-target="static-modal-8"
+            data-modal-toggle="static-modal-8"
+            type="button"
+            class="max-w-sm bg-white border border-gray-200 rounded-lg shadow-md hover:shadow-lg dark:bg-gray-800 dark:border-gray-700"
+          >
+            <img
+              class="rounded-t-lg h-48 w-full"
+              src="media/ss/cdc.png"
+              alt=""
+            />
+            <p
+              class="text-justify my-3 mx-2 font-medium text-gray-700 dark:text-gray-400"
+            >
+              Lomba Debat Bahasa Indonesia Extravaganza [2023] - Politeknik
+              Piksi Ganesha
+            </p>
+            <p class="mx-2 text-justify text-black text-sm font-medium my-2">
+              Juara 1 |
+              <a
+                href=""
+                class="text-sm font-medium mx-2 text-primary hover:underline"
+              >
+                Detail Sertifikat!</a
+              >
+            </p>
+          </button>
+        </div>
+        <div
+          id="static-modal-8"
+          data-modal-backdrop="static"
+          tabindex="-1"
+          aria-hidden="true"
+          class="hidden fixed top-0 right-0 bottom-0 left-0 z-50 flex items-center justify-center bg-black bg-opacity-50"
+        >
+          <div class="relative p-4 w-full max-w-2xl">
+            <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+              <div
+                class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600"
+              >
+                <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
+                  Lomba Debat Bahasa Indonesia Extravaganza [2023] - Politeknik
+                  Piksi Ganesha
+                </h3>
+                <button
+                  type="button"
+                  class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
+                  data-modal-hide="static-modal-8"
+                >
+                  <svg
+                    class="w-3 h-3"
+                    aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 14 14"
+                  >
+                    <path
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"
+                    />
+                  </svg>
+                  <span class="sr-only">Close modal</span>
+                </button>
+              </div>
+              <div class="p-4 md:p-5 space-y-4">
+                <img
+                  class="rounded-lg h-auto w-full"
+                  src="media/ss/cdc.png"
+                  alt=""
+                />
+              </div>
+              <div
+                class="flex items-center p-4 md:p-5 border-t border-gray-200 rounded-b dark:border-gray-600"
+              >
+                <a
+                  href=""
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="text-white bg-primary hover:bg-secondary focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-primary dark:focus:ring-blue-800"
+                >
+                  Detail Sertifikat!
+                </a>
+                <button
+                  data-modal-hide="static-modal-8"
+                  type="button"
+                  class="ms-3 text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600"
+                >
+                  Kembali
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 9 -->
+        <div class="mx-auto mb-5 text-justify">
+          <span
+            class="absolute text-white p-1.5 text-sm hover:font-medium bg-slate-500/50 rounded-lg hover:underline cursor-pointer"
+            >Achievements</span
+          >
+          <button
+            data-modal-target="static-modal-9"
+            data-modal-toggle="static-modal-9"
+            type="button"
+            class="max-w-sm bg-white border border-gray-200 rounded-lg shadow-md hover:shadow-lg dark:bg-gray-800 dark:border-gray-700"
+          >
+            <img
+              class="rounded-t-lg h-48 w-full"
+              src="media/ss/cdc.png"
+              alt=""
+            />
+            <p
+              class="text-justify my-3 mx-2 font-medium text-gray-700 dark:text-gray-400"
+            >
+              Lomba Karya Tulis Ilmiah [2018] - Universitas Bengkulu [HIMAMIA
+              UNIB]
+            </p>
+            <p class="mx-2 text-justify text-black text-sm font-medium my-2">
+              Harapan 1 |
+              <a
+                href=""
+                class="text-sm font-medium mx-2 text-primary hover:underline"
+              >
+                Detail Sertifikat!</a
+              >
+            </p>
+          </button>
+        </div>
+        <div
+          id="static-modal-9"
+          data-modal-backdrop="static"
+          tabindex="-1"
+          aria-hidden="true"
+          class="hidden fixed top-0 right-0 bottom-0 left-0 z-50 flex items-center justify-center bg-black bg-opacity-50"
+        >
+          <div class="relative p-4 w-full max-w-2xl">
+            <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+              <div
+                class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600"
+              >
+                <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
+                  Lomba Karya Tulis Ilmiah [2018] - Universitas Bengkulu
+                  [HIMAMIA UNIB]
+                </h3>
+                <button
+                  type="button"
+                  class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
+                  data-modal-hide="static-modal-9"
+                >
+                  <svg
+                    class="w-3 h-3"
+                    aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 14 14"
+                  >
+                    <path
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"
+                    />
+                  </svg>
+                  <span class="sr-only">Close modal</span>
+                </button>
+              </div>
+              <div class="p-4 md:p-5 space-y-4">
+                <img
+                  class="rounded-lg h-auto w-full"
+                  src="media/ss/cdc.png"
+                  alt=""
+                />
+              </div>
+              <div
+                class="flex items-center p-4 md:p-5 border-t border-gray-200 rounded-b dark:border-gray-600"
+              >
+                <a
+                  href=""
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="text-white bg-primary hover:bg-secondary focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-primary dark:focus:ring-blue-800"
+                >
+                  Detail Sertifikat!
+                </a>
+                <button
+                  data-modal-hide="static-modal-9"
+                  type="button"
+                  class="ms-3 text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600"
+                >
+                  Kembali
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Credentials Achievements End -->
+
+      <!-- Header Contact Start -->
+      <div id="contact" class="my-10 md:pt-44 md:mt-32 md:mb-20">
+        <h1 class="text-center font-semibold text-2xl md:text-4xl md:font-bold">
+          CONTACT
+        </h1>
+        <hr class="mt-5 w-1/6 md:w-1/12 border-t-2 border-primary mx-auto" />
+      </div>
+      <!-- Header Contact End  -->
+
+      <!-- Contact Start -->
+      <section id="pesan" class="flex flex-wrap mt-16 mb-10">
+        <div class="md:w-7/12 md:p-3 md:py-4 md:rounded-md bg-white md:border">
+          <div class="px-4 mx-auto">
+            <h2
+              class="mb-4 text-xl md:text-2xl font-bold text-justify text-gray-900"
+            >
+              Hubungi saya
+            </h2>
+            <p class="mb-6 lg:mb-10 text-justify">
+              Jangan ragu untuk menghubungi saya jika Anda memiliki pertanyaan,
+              saran, atau jika ingin berkolaborasi. Saya sangat menantikan pesan
+              dari Anda!
+            </p>
+            <form action="#" name="submit-to-google-sheet" class="space-y-8">
+              <div>
+                <label
+                  for="today"
+                  class="block mb-2 text-sm font-medium text-gray-900"
+                  >Today, is...?</label
+                >
+                <input
+                  type="datetime-local"
+                  id="today"
+                  name="today"
+                  class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5"
+                  required
+                />
+              </div>
+              <div>
+                <label
+                  for="email"
+                  class="block mb-2 text-sm font-medium text-gray-900"
+                  >Alamat email</label
+                >
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5"
+                  placeholder="name@gmail.com"
+                  required
+                />
+              </div>
+              <div>
+                <label
+                  for="subject"
+                  class="block mb-2 text-sm font-medium text-gray-900"
+                  >Subjek</label
+                >
+                <input
+                  type="text"
+                  id="subject"
+                  name="subject"
+                  class="block p-3 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 shadow-sm focus:ring-primary-500 focus:border-primary-500"
+                  placeholder="Beri tahu saya bagaimana saya dapat membantu Anda"
+                  required
+                />
+              </div>
+              <div class="sm:col-span-2">
+                <label
+                  for="message"
+                  class="block mb-2 text-sm font-medium text-gray-900"
+                  >Masukkan pesan</label
+                >
+                <textarea
+                  id="message"
+                  name="message"
+                  rows="6"
+                  class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg shadow-sm border border-gray-300 focus:ring-primary-500 focus:border-primary-500"
+                  placeholder="Masukkan pesan..."
+                ></textarea>
+              </div>
+              <button
+                type="submit"
+                class="py-3 px-5 mr-1 text-sm font-medium bg-primary text-center text-white rounded-lg bg-primary-700 sm:w-fit hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300"
+              >
+                Kirim pesan
+              </button>
+              <a
+                href=""
+                class="py-3 px-5 text-sm font-medium bg-secondary text-center text-white rounded-lg bg-primary-700 sm:w-fit hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Cek pesan</a
+              >
+              <br /><br />
+              <span
+                id="Success"
+                class="hidden bg-green-600 text-white font-medium underline p-2.5 px-4 pt-2 rounded-md"
+                >Pesan terkirim!</span
+              >
+              <p class="text-sm text-gray-500">
+                Keterangan: <br />
+                - Feedback pesan akan dikirimkan melalui email <br />
+                - Kunjungi Sosial Media saya!
+              </p>
             </form>
           </div>
         </div>
-      </div>
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
-        <path
-          fill="#efefef"
-          fill-opacity="1"
-          d="M0,256L48,245.3C96,235,192,213,288,213.3C384,213,480,235,576,234.7C672,235,768,213,864,197.3C960,181,1056,171,1152,160C1248,149,1344,139,1392,133.3L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
-        ></path>
-      </svg>
-    </section>
-    <!-- Contact End -->
+        <div
+          class="mt-8 md:mt-0 md:w-2/5 md:ml-5 md:p-3 md:py-5 md:rounded-md bg-white md:border md:border-r-2"
+        >
+          <div class="px-4 mx-auto">
+            <h2
+              class="mb-4 text-xl md:text-2xl font-bold text-justify text-gray-900"
+            >
+              Kunjungi saya
+            </h2>
+            <div class="mt-0 md:mt-8">
+              <div class="d-flex flex-column mb-5">
+                <h5 class="font-weight-semi-bold mb-3">
+                  🏡 Rumah - Lubuk Rumbai, Muratara [31654]
+                </h5>
+                <p class="mb-2">
+                  <i class="bx bx-current-location text-primary mr-3"></i>Dusun
+                  1 Desa Lubuk Rumbai, Kecamatan Rupit, Kabupaten Musi Rawas
+                  Utara, Provinsi Sumatera Selatan [31654]
+                </p>
+                <p class="mb-2">
+                  <i class="bx bx-mail-send text-primary mr-3"></i
+                  >lubukrumbai13@gmail.com
+                </p>
+              </div>
+              <hr />
+              <br />
+              <div class="w-full">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d48789.0147666824!2d102.92454200724704!3d-2.710751529751243!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMsKwNDInMzUuNCJTIDEwMsKwNTYnMDMuNyJF!5e1!3m2!1sid!2sid!4v1702298968327!5m2!1sid!2sid"
+                  width="100%"
+                  height="510"
+                  style="border: 0"
+                  allowfullscreen=""
+                  loading="lazy"
+                  referrerpolicy="no-referrer-when-downgrade"
+                ></iframe>
+              </div>
+              <hr />
+              <br />
+              <div class="flex mt-4 space-x-5 md:mt-5">
+                <i class="font-medium">Let's Connect!:</i>
+                <span
+                  ><a
+                    href="https://github.com/xampoerna"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <img src="media/icon/github.png" alt="myGitHub" class="h-5"
+                  /></a>
+                </span>
+                <span
+                  ><a
+                    href="https://api.whatsapp.com/send?phone=6285366330481"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <img
+                      src="media/icon/whatsapp.png"
+                      alt="myWhatsapp"
+                      class="h-5"
+                  /></a>
+                </span>
+                <span
+                  ><a
+                    href="https://instagram.com/icb.sam/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <img
+                      src="media/icon/instagram.png"
+                      alt="myInstagram"
+                      class="h-5"
+                  /></a>
+                </span>
+                <span
+                  ><a
+                    href="https://www.facebook.com/xampoerna"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    ><img
+                      src="media/icon/facebook.png"
+                      alt="myFacebook"
+                      class="h-5"
+                  /></a>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Contact End -->
+    </main>
+    <!-- Main Content End -->
 
     <!-- Footer Start -->
-    <footer class="text-dark text-center pb-3 border-secondary" style="background-color: #efefef">
-      <p>Created by <a href="#" class="text-dark fw-bold">A. Xampoerna</a></p>
+    <footer
+      class="bg-white text-primary border border-t-2 rounded-lg shadow mt-5"
+    >
+      <div
+        class="w-full mx-auto max-w-screen-xl p-4 md:flex md:items-center md:justify-between"
+      >
+        <span class="text-sm sm:text-center"
+          >© 2023
+          <a
+            href=""
+            target="_blank"
+            rel="noopener noreferrer"
+            class="hover:underline"
+            >Portfolio OSAMA™</a
+          >. All Rights Reserved.
+        </span>
+        <ul
+          class="flex flex-wrap items-center mt-3 text-sm font-medium sm:mt-0"
+        >
+          <li>
+            <a href="index.html" class="hover:underline me-4 md:me-6">HOME</a>
+          </li>
+          <li>
+            <a href="#techstack" class="hover:underline me-4 md:me-6">SKILLS</a>
+          </li>
+          <li>
+            <a href="#portfolio" class="hover:underline me-4 md:me-6"
+              >PORTFOLIO GALLERY</a
+            >
+          </li>
+          <li>
+            <a href="#contact" class="hover:underline">CONTACT</a>
+          </li>
+        </ul>
+      </div>
     </footer>
     <!-- Footer End -->
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+    <script>
+      function handleDropdown(buttonId, menuId) {
+        const dropdownButton = document.getElementById(buttonId);
+        const dropdownMenu = document.getElementById(menuId);
+        let timeout;
+
+        dropdownButton.addEventListener("mouseenter", function () {
+          dropdownMenu.classList.remove("hidden");
+          clearTimeout(timeout);
+        });
+
+        dropdownButton.addEventListener("mouseleave", function () {
+          timeout = setTimeout(function () {
+            dropdownMenu.classList.add("hidden");
+          }, 200);
+        });
+
+        dropdownMenu.addEventListener("mouseenter", function () {
+          clearTimeout(timeout);
+          dropdownMenu.classList.remove("hidden");
+        });
+
+        dropdownMenu.addEventListener("mouseleave", function () {
+          timeout = setTimeout(function () {
+            dropdownMenu.classList.add("hidden");
+          }, 200);
+        });
+      }
+
+      // Panggil fungsi handleDropdown untuk setiap dropdown
+      handleDropdown("skills", "dropdownHoverSkills");
+      handleDropdown("credentials", "dropdownHoverCredentials");
+
+      document.addEventListener("DOMContentLoaded", function () {
+        const modalToggles = document.querySelectorAll("[data-modal-toggle]");
+        const modalCloses = document.querySelectorAll("[data-modal-hide]");
+
+        modalToggles.forEach(function (toggle) {
+          toggle.addEventListener("click", function () {
+            const targetModalId = toggle.getAttribute("data-modal-target");
+            const targetModal = document.getElementById(targetModalId);
+
+            if (targetModal) {
+              targetModal.classList.toggle("hidden");
+            }
+          });
+        });
+
+        modalCloses.forEach(function (close) {
+          close.addEventListener("click", function () {
+            const targetModalId = close.getAttribute("data-modal-hide");
+            const targetModal = document.getElementById(targetModalId);
+
+            if (targetModal) {
+              targetModal.classList.add("hidden");
+            }
+          });
+        });
+      });
+    </script>
   </body>
 </html>
